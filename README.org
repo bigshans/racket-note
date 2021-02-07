@@ -1,0 +1,5 @@
+# Racket 笔记
+
+本笔记根据 [[https://docs.racket-lang.org/guide/intro.html][Racket Guide]] 学习进行描述记录。算是我闲来无事所做的记录。
+
+希望大家能够获得点什么。

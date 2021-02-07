@@ -1,0 +1,81 @@
+* 欢迎使用 Racket
+
+Racket 是什么，取决于你如何看待它。 Racket 可以是：
+ - 一门编程语言 —— 一种 Lisp 的方言，Scheme 的远亲；
+ - 一种编程语族 —— 各种不同的 Racket；
+ - 一系列工具 —— 使用一系列编程语言。
+
+我们简单的使用 Racket ，没有什么需要疑惑的地方。
+
+Racket 的主要工具包括：
+ - =racket= ，核心编译器、解释器和运行环境;
+ - =DrRacket= ，编程环境；
+ - =raco= ，racket 的命令行工具，用于安装包，构建库等等。
+
+我们可以使用 =Emacs= 、 =Vim= 、 =Sublime= 开始我们的探索，也可以使用 Racket 自带的 =DrRacket= 。
+
+我们假设你从来没有使用过 =DrRacket= ，在启动后，键入如下内容：
+
+#+begin_src racket
+#lang racket
+#+end_src
+
+然后点击 =Run= 按钮， =DrRacket= 将会以 Racket 的方式进行运行。
+
+** 1.1 定义与交互
+
+我们可以用一下方式定义一个函数。
+
+#+begin_src racket
+#lang racket
+
+(define (extract str)
+  (substring str 4 7)
+  )
+#+end_src
+
+#+RESULTS:
+
+然后点击 =Run= ，就可以在下面的 REPL 里调用它了。
+
+#+begin_example
+> (extract "the boy out of the country")
+"boy"
+#+end_example
+
+如果你使用命令行，你可以将函数保存为 「extract.rkt」，然后在 racket 中运行如下语句。
+
+#+begin_example
+> (enter! "extract.rkt")
+> (extract "the gal out of the city")
+"gal"
+#+end_example
+
+与在 =DrRacket= 中点击 =Run= 效果一样。
+
+** 1.2 创建可执行文件
+
+我们写一个文件。
+
+#+begin_src racket
+#lang racket
+
+(define (extract str)
+  (substring str 4 7)
+  )
+
+(extract "the cat out of the bag")
+#+end_src
+
+#+RESULTS:
+: cat
+
+我们使用 =racket <src-filename>= 命令，获得结果 =cat= 。
+
+我们可以在头部加上
+
+#+begin_example
+#! /usr/bin/env racket
+#+end_example
+
+并运行 chmod +x <filename> 将之变成可执行文件。
